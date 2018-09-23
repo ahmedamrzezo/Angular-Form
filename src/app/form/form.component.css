@@ -1,0 +1,22 @@
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: max-content;
+  background-color: rgb(215, 221, 250);
+  box-shadow: 0 5px 15px rgba(37, 37, 39, 0.3);
+  padding: 20px 40px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+h1 {
+  font-size: 36px;
+  margin: 15px 0;
+}

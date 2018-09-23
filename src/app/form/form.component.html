@@ -2,12 +2,12 @@
   <h1>Angular6 Forms</h1>
   <form #form="ngForm" action="" method="POST" novalidate>
     <fieldset class="form-group">
-      <label for="email">Email Address</label>
-      <input type="email" class="form-control" placeholder="Enter Email" name="email" required ngModel>
+      <label for="emailadress">Email Address</label>
+      <input id ="emailadress"type="email" class="form-control form-control-lg" placeholder="Enter Email" name="email" required ngModel>
     </fieldset>
     <fieldset class="form-group">
       <label for="name">Full Name</label>
-      <input type="text" class="form-control" placeholder="Enter Full Name" name="name" required ngModel>
+      <input type="text" class="form-control form-control-lg" placeholder="Enter Full Name" name="name" required ngModel>
     </fieldset>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

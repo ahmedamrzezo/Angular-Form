@@ -1,3 +1,14 @@
-<p>
-  form works!
-</p>
+<div class="container">
+  <h1>Angular6 Forms</h1>
+  <form #form="ngForm" action="" method="POST" novalidate>
+    <fieldset class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" class="form-control" placeholder="Enter Email" name="email" required ngModel>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" class="form-control" placeholder="Enter Full Name" name="name" required ngModel>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

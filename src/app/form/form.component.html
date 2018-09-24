@@ -1,14 +1,37 @@
 <div class="container">
-  <h1>Angular6 Forms</h1>
+  <h1>Join our angular Team</h1>
   <form #form="ngForm" action="" method="POST" novalidate>
-    <fieldset class="form-group">
-      <label for="emailadress">Email Address</label>
-      <input id ="emailadress"type="email" class="form-control form-control-lg" placeholder="Enter Email" name="email" required ngModel>
-    </fieldset>
+
     <fieldset class="form-group">
       <label for="name">Full Name</label>
-      <input type="text" class="form-control form-control-lg" placeholder="Enter Full Name" name="name" required ngModel>
+      <input type="text" class="form-control form-control" placeholder="Enter Full Name" name="name" required ngModel>
     </fieldset>
+
+    <fieldset class="form-group">
+      <label for="emailadress">Email Address</label>
+      <input id ="emailadress"type="email" class="form-control form-control" placeholder="Enter Email" name="email" required ngModel>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label for="github">GitHub Profile</label>
+      <input id ="github" type="text" class="form-control form-control" placeholder="Username" name="github" required ngModel>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label for="city">Select Your Current City</label>
+      <select id="city" class="form-control">
+        <option *ngFor="let city of cities">{{ city }}</option>
+      </select>
+    </fieldset>
+
+    <fieldset class="checkbox">
+      <label for="full-time">
+        Available full time? Check the box
+        <input type="checkbox" name="is-full-time" id="full-time" ngModel>
+      </label>
+    </fieldset>
+
     <button type="submit" class="btn btn-primary">Submit</button>
+
   </form>
 </div>

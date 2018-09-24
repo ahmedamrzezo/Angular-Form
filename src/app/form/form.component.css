@@ -6,7 +6,7 @@
   right: 0;
   margin: auto;
   height: max-content;
-  background-color: rgb(215, 221, 250);
+  background-color:  var(--light);
   box-shadow: 0 5px 15px rgba(37, 37, 39, 0.3);
   padding: 20px 40px;
   border-radius: 10px;
@@ -19,4 +19,5 @@
 h1 {
   font-size: 36px;
   margin: 15px 0;
+  text-transform: capitalize;
 }

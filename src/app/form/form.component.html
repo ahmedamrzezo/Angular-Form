@@ -1,37 +1,121 @@
 <div class="container">
   <h1>Join our angular Team</h1>
-  <form #form="ngForm" action="" method="POST" novalidate>
+  <form #form="ngForm" (submit)="submitForm(form)" autocomplete="off" novalidate>
 
     <fieldset class="form-group">
       <label for="name">Full Name</label>
-      <input type="text" class="form-control form-control" placeholder="Enter Full Name" name="name" required ngModel>
+      <input
+      id="name"
+      type="text"
+      class="form-control"
+      placeholder="Enter Your Name"
+      [ngClass]="{
+        'is-invalid': name.invalid && name.touched,
+        'is-valid': name.valid
+      }"
+      #name="ngModel"
+      name="name"
+      [(ngModel)]="geek.name"
+      required>
+
+      <div class="invalid-feedback" *ngIf="name.invalid && name.touched">
+        Please provide a {{ name.name }}.
+      </div>
+      <div class="valid-feedback" *ngIf="name.valid">
+        Awesome, {{ name.value }}.
+      </div>
     </fieldset>
 
     <fieldset class="form-group">
       <label for="emailadress">Email Address</label>
-      <input id ="emailadress"type="email" class="form-control form-control" placeholder="Enter Email" name="email" required ngModel>
+      <input
+      id ="emailadress"
+      type="email"
+      class="form-control form-control"
+      [ngClass]="{
+        'is-invalid': email.invalid && email.touched,
+        'is-valid': email.valid
+      }"
+      placeholder="Enter Email"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+      name="email"
+      #email="ngModel"
+      [(ngModel)]="geek.email"
+      required>
+
+      <div class="invalid-feedback" *ngIf="email.invalid && email.touched">
+        Please provide your email correctly.
+      </div>
+      <div class="valid-feedback" *ngIf="email.valid">
+        Looks good.
+      </div>
     </fieldset>
 
     <fieldset class="form-group">
       <label for="github">GitHub Profile</label>
-      <input id ="github" type="text" class="form-control form-control" placeholder="Username" name="github" required ngModel>
+      <input
+      id ="github"
+      type="text"
+      class="form-control form-control"
+      [ngClass]="{
+        'is-invalid': github.invalid && github.touched,
+        'is-valid': github.valid
+      }"
+      placeholder="Username"
+      name="github"
+      #github="ngModel"
+      [(ngModel)]="geek.github"
+      required>
+
+      <div class="valid-feedback" *ngIf="github.valid">
+        Okay.
+      </div>
     </fieldset>
 
     <fieldset class="form-group">
       <label for="city">Select Your Current City</label>
-      <select id="city" class="form-control">
+      <select
+      id="city"
+      class="form-control"
+      name="city"
+      [ngClass]="{
+        'is-invalid': hasCityError && city.dirty,
+        'is-valid': !hasCityError  && city.touched
+      }"
+      #city = "ngModel"
+      (blur)="validateCity(city.value)"
+      (change)="validateCity(city.value)"
+      [(ngModel)]="geek.city">
+        <option value="default">Select a city...</option>
         <option *ngFor="let city of cities">{{ city }}</option>
       </select>
+      <div class="invalid-feedback" *ngIf="validateCity(city.value)">
+        Nah, you have to choose a city
+      </div>
+      <div class="valid-feedback" *ngIf="!validateCity(city.value)">
+        Cool.
+      </div>
     </fieldset>
 
     <fieldset class="checkbox">
       <label for="full-time">
         Available full time? Check the box
-        <input type="checkbox" name="is-full-time" id="full-time" ngModel>
+        <input
+        type="checkbox"
+        id="full-time"
+        name="is-full-time"
+        [(ngModel)]="geek.isFullTime">
       </label>
     </fieldset>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="form.invalid">
+    Submit</button>
 
   </form>
+  <!-- Model: {{ geek | json}}
+  <br>
+  Angular: {{ form.value | json}} -->
 </div>

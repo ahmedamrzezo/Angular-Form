@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  cities = [];
+  cities = ['Cairo', 'Alexandria', 'Other'];
 
   constructor(private posting: PostingService) {}
 
@@ -39,7 +39,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.posting.getCities().subscribe(
-      data => this.cities = data.cities,
+      // data => this.cities = data.cities,
       err => console.error(err)
     );
   }
